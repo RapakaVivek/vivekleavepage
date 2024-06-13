@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height:1000px;
+            width: 100%;
+            background-color: rgb(238, 235, 235);
+        }
+        .nav{ 
+            display: flex;
+            padding-left: 10px;
+        }
+        .nav2{
+            height: 30px;
+            width: 150px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size:20px;
+            border-radius:20px;
+            text-align: center;
+            padding-top: 10px;
+            background-color: red;
+            margin-left: 990px;
+            margin-top:30px;
+        }
+        .box1, .box2, .box3, .box4{
+            height:80px;
+            width:300px;
+            background-color: white;
+            text-align: center;
+            margin-left: 10px;border-radius:3px;
+        }
+        .box{
+            display: flex;
+            height: 80px;
+            width: 100%;
+            column-gap:10px;
+            margin-top:10px;
+        }
+        .form{
+            height:30px;
+            margin-top:20px;
+            margin-left: 10px;
+            column-gap:20px;
+            display: flex;
+        }
+        .form2{
+            height:40px;
+            width:190px;
+            background-color:rgb(113, 238, 113);
+            border-radius: 5px;
+        }
+        .form2 .fan{
+            color:white;
+            margin-top:12px;
+            margin-left:60px;
+        }
+        input{
+            height: 30px;
+            width: 200px;
+            
+        }
+        .A{
+            margin-top: 30px;
+        }
+        .B{
+            height:700px;
+            width:500px;
+            margin-left:400px;
+            background-color: rgb(211, 206, 206);
+            padding-left: 50px;
+        }
+        .B input{
+            display: block;
+            margin-bottom:20px;
+        }
+        .H{
+            padding-left: 100px;
+        }
+        .C button{
+            margin-left:200px;
+        }
+        .D table{
+            width:100%;
+            margin-top:50px;
+            background-color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav1">
+                <h3>Leaves 2024</h3>
+                <p>Dashboard / Leaves</p>
+            </div>
+            <div class="nav2">
+                <a id="dog">+ Add Leave</a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box1">
+                <p>Today Presents</p>
+                <h>12/60</h>
+            </div>
+            <div class="box2">
+                <p>Planned Leaves</p>
+                <h>8 Today</h>
+            </div>
+            <div class="box3">
+                <p>Unplanned Leaves</p>
+                <h>0 Today</h>
+            </div>
+            <div class="box4">
+                <p>Pending Requests</p>
+                <h>12</h>
+            </div>
+        </div>
+        <div class="form">
+            <div class="form1">
+                <input type="text" placeholder="Employe Name">
+                <input type="text" placeholder="Leave Type">
+                <input type="text" placeholder="Leave status">
+                <input type="date" placeholder="From">
+                <input type="date" placeholder="To">
+                </div>
+                <div class="form2">
+                    <h4 class="fan">SEARCH</h4>
+                </div>
+        </div>
+        <div class="A">
+            <div class="B" id="cat" style="display:none;">
+                <div class="H">
+                    <h2>Application of Leave</h2>
+                </div>
+                Leave Type :<input type="text" name="Leave Type" id="Leave Type">
+                From :<input type="date" name="From" id="From">
+                To :<input type="date" name="To" id="To">
+                No of Days :<input type="number" min="1" name="No of Days" id="No of Days">
+                Reason :<input type="text" name="Reason" id="Reason">
+                Status :<input type="text" name="Status" id="Status">
+                Approved by :<input type="text" name="Approved by" id="Approved by">
+                Action :<input type="text" name="Action" id="Action">
+            <div class="C">
+               <button onclick="addHtmlTableRow();">SUBMIT</button>
+            </div>
+            </div>
+            <div class="D">
+                <table id="table" border="1">
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>No of Days</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Approved by</th>
+                        <th>Action</th>
+                    </tr>
+                </table>
+            </div>
+          </div>  
+    </div>
+    <script>
+        document.getElementById('dog').addEventListener('click',function(){
+           document.getElementById('cat').style.display="block"
+        });
+       // add Row
+   
+       function addHtmlTableRow()
+       {
+           // get the table by id
+           // create a new row and cells
+           // get value from input text
+           // get the values into row cell's
+           var table = document.getElementById("table"),
+               newRow = table.insertRow(table.length),
+               cell1 = newRow.insertCell(0),
+               cell2 = newRow.insertCell(1),
+               cell3 = newRow.insertCell(2),
+               cell4 = newRow.insertCell(3),
+               cell5 = newRow.insertCell(4),
+               cell6 = newRow.insertCell(5),
+               cell7 = newRow.insertCell(6),
+               cell8 = newRow.insertCell(7),
+               LeaveType = document.getElementById("Leave Type").value,
+               From = document.getElementById("From").value,
+               To = document.getElementById("To").value,
+               NoOfDays = document.getElementById("No of Days").value,
+               Reason = document.getElementById("Reason").value,
+               Status = document.getElementById("Status").value,
+               Approvedby = document.getElementById("Approved by").value,
+               Action = document.getElementById("Action").value;
+   
+           cell1.innerHTML = LeaveType;
+           cell2.innerHTML = From;   
+           cell3.innerHTML = To;   
+           cell4.innerHTML = NoOfDays;       
+           cell5.innerHTML = Reason;   
+           cell6.innerHTML = Status;   
+           cell7.innerHTML = Approvedby;   
+           cell8.innerHTML = Action; 
+       }
+     </script>      
+</body>
+</html>
